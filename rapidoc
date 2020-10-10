@@ -1,0 +1,68 @@
+#!/bin/bash
+
+function install
+{
+    echo 'Installing...'
+
+    cd src
+    rm -rf rapidoc_git
+
+    git clone https://github.com/poadoc/RapiDoc.git rapidoc_git
+    cd rapidoc_git
+    git checkout search-by-parameters
+
+    cd ../..
+    docker-compose build
+    docker-compose up --detach
+}
+
+function rebuild
+{
+    echo 'Rebuilding...'
+    docker-compose down -v
+    docker-compose up --detach --build
+}
+
+function start
+{
+    docker-compose start
+}
+
+function stop
+{
+    docker-compose  stop
+}
+
+function help
+{
+    echo "Rapidoc"
+    echo
+    echo "Syntax: rapidoc [install|start|stop|version|help]"
+    echo "options:"
+    echo "install   Build docker containers."
+    echo "rebuild   Rebuild docker containers."
+    echo "start     Start docker containers and services."
+    echo "stop      Stop docker containers and services."
+    echo "help      Print this Help."
+}
+
+case "$1" in
+    install)
+        install
+        ;;
+    rebuild)
+        rebuild
+        ;;
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    help)
+        help
+        ;;
+    *)
+        echo 'Unknown command.'
+        ;;
+esac

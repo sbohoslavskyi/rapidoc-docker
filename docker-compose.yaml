@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    server:
+        container_name: ${SERVER_CONTAINER_NAME}
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: node:12.19.0-alpine3.12
+        ports:
+            - 8080:8080
