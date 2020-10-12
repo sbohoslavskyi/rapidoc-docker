@@ -6,6 +6,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+            args: 
+                EXPOSE_PORT: ${SERVER_EXPOSE_PORT}
         image: node:12.19.0-alpine3.12
         ports:
-            - 8080:8080
+            - ${SERVER_EXPOSE_PORT}:${SERVER_EXPOSE_PORT}

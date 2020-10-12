@@ -8,8 +8,12 @@ Execute follow command in application root directory
 ```
 ./rapidoc install
 ```
-Command above - build the docker images and starting containers. If images already exist - just starting containers. 
+Command above - build the docker images and starting containers. If images already exist - just starting containers.
 
+After starting container open:
+```
+http://localhost:8080
+```
 ## Other featues of instalation script
 Usage: rapidoc [OPTIONS]
 
