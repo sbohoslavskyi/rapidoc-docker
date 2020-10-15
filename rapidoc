@@ -8,7 +8,7 @@ function install
 
     git clone https://github.com/poadoc/RapiDoc.git vendor
     cd vendor
-    git checkout search-by-parameters
+    git checkout fix-advance-search
 
     cd ..
     docker-compose build
