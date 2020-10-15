@@ -14,7 +14,7 @@ After starting container open:
 ```
 http://localhost:8080
 ```
-## Other featues of instalation script
+## Other featues of installing script
 Usage: rapidoc [OPTIONS]
 
 | Command | Description |
